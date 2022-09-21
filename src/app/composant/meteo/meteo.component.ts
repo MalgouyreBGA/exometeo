@@ -12,6 +12,7 @@ export class MeteoComponent implements OnInit {
   nomApi: string;
   WeatherData:any;
   ville:string;
+  key:string;
   //data:any;
 
   // 4 propriétés de meteo
@@ -65,7 +66,8 @@ export class MeteoComponent implements OnInit {
     if (ville != "") {
       //ville = ville.toLowerCase() not necessary?
       //key a moi a metre sur constant plus tard !!!!!!!!!!!!!!!!!!
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=8e0e6da438494e60fb8e79ec03165390`)
+      this.key = "8e0e6da438494e60fb8e79ec03165390"
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=${this.key}`)
       .then(response=>response.json())
       .then(data=>{this.setWeatherData(data);})
 
