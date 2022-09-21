@@ -24,6 +24,7 @@ export class MeteoComponent implements OnInit {
   constructor(/*add private meteoService: MeteoService*/) {
     this.nomApi = `OpenWeather API`  
     this.ville = "dijon";
+    this.key = "8e0e6da438494e60fb8e79ec03165390";
     /*
     // la méthode qui récupère les données émis par le openweather api
     recevezLesDonnees(ville: string){
@@ -66,7 +67,6 @@ export class MeteoComponent implements OnInit {
     if (ville != "") {
       //ville = ville.toLowerCase() not necessary?
       //key a moi a metre sur constant plus tard !!!!!!!!!!!!!!!!!!
-      this.key = "8e0e6da438494e60fb8e79ec03165390"
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ville}&appid=${this.key}`)
       .then(response=>response.json())
       .then(data=>{this.setWeatherData(data);})
